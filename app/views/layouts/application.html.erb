@@ -1,14 +1,35 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Blog</title>
+	<title>Riley Parsons - Designer and Developer</title>
+	<link href="https://fonts.googleapis.com/css?family=Roboto:300,400" rel="stylesheet">
+	<script src="https://use.fontawesome.com/5210d1034d.js"></script>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
+	<header id="main_navigation" class="bottom_border">
+		<%= link_to(image_tag("PersonalLogo.png", :id => "main_logo"), root_path, :class => "no_highlight")%>
+		<nav>
+			<a href="index.html">Resume</a>
+			<%= link_to("Articles", posts_path) %>
+			<a href="contact.html">Contact</a>
+		</nav>
+	</header>
 
-<%= yield %>
+	<%= yield %>
+
+	<footer id="main_footer" class="top_border">
+		<p class="copyright">
+			&copy;2016 Riley Parsons
+		</p>
+		<nav>
+			<a href="http://twitter.com/rileysparsons" target="_blank" class="no_highlight"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+			<a href="https://www.linkedin.com/in/rileysparsons" target="_blank" class="no_highlight"><i class="fa fa-linkedin" aria-hidden="true"></i></a>
+			<a href="https://github.com/rileysparsons" target="_blank" class="no_highlight"><i class="fa fa-github" aria-hidden="true"></i></a>	
+		</nav>
+	</footer>
 
 </body>
 </html>
