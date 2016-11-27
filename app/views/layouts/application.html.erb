@@ -10,7 +10,7 @@
 </head>
 <body>
 	<header id="main_navigation" class="bottom_border">
-		<a href="#" class="no_highlight"><%= image_tag "PersonalLogo.png", :id => "main_logo"%></a>
+		<%= link_to(image_tag("PersonalLogo.png", :id => "main_logo"), root_path, :class => "no_highlight")%>
 		<nav>
 			<a href="index.html">Resume</a>
 			<%= link_to("Articles", posts_path) %>
@@ -18,7 +18,18 @@
 		</nav>
 	</header>
 
-<%= yield %>
+	<%= yield %>
+
+	<footer id="main_footer" class="top_border">
+		<p class="copyright">
+			&copy;2016 Riley Parsons
+		</p>
+		<nav>
+			<a href="http://twitter.com/rileysparsons" target="_blank" class="no_highlight"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+			<a href="https://www.linkedin.com/in/rileysparsons" target="_blank" class="no_highlight"><i class="fa fa-linkedin" aria-hidden="true"></i></a>
+			<a href="https://github.com/rileysparsons" target="_blank" class="no_highlight"><i class="fa fa-github" aria-hidden="true"></i></a>	
+		</nav>
+	</footer>
 
 </body>
 </html>
