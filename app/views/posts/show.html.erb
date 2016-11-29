@@ -14,6 +14,9 @@
 		<a onclick="javascript:window.open('http://twitter.com/share?text=<%= @post.title %> by @rileysparsons - &amp;url=<%= url_for([@post, {only_path: false}]) %>', '_blank', 'width=800, height=500, top=200, left=300');void(0);"><i class="fa fa-twitter"></i></a>
 	</div>
 	<hr>
+	<%= render "disqus" %>
 </div>
+
+
 
 <%= link_to("Edit", edit_post_path(@post)) %>
