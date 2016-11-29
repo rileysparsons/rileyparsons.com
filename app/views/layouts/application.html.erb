@@ -12,7 +12,7 @@
 	<header id="main_navigation" class="bottom_border">
 		<%= link_to(image_tag("PersonalLogo.png", :id => "main_logo"), root_path, :class => "no_highlight")%>
 		<nav>
-			<a href="index.html">Resume</a>
+			<%= link_to("Resume", root_path) %>
 			<%= link_to("Articles", posts_path) %>
 			<a href="contact.html">Contact</a>
 		</nav>
