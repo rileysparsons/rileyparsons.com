@@ -54,6 +54,9 @@ $highlight: #ffc963;
 
 	.content{
 		width: 500px;
+		@include tablet-portrait-and-below {
+			width: auto;
+		}
 	}
 }
 

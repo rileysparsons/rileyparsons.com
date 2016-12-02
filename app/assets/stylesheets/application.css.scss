@@ -67,7 +67,11 @@ a {
 #main_navigation {
 	padding: 2.5em 5%;
 	text-align: center;
-
+	svg {
+		@include tablet-portrait-and-below {
+			width: 100%;
+		}
+	}
 	nav {
 		margin-top: 2rem;
 		a {
