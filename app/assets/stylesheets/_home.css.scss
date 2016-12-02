@@ -1,5 +1,5 @@
 $dark: #44484c;
-$light: #bbbdc1;
+$light: #889098;
 $highlight: #ffc963;
 
 .timeline{
@@ -23,13 +23,22 @@ $highlight: #ffc963;
 		padding: 0;
 	}
 
+	.title p{
+		font-size: .9em;
+		font-weight: 300;
+		color: $light;
+		margin: 0;
+	}
+
 	p.object {
 		margin-bottom: 0px;
 	}
 
 	p.description{
+		text-transform: uppercase;
 		margin-top: 0px;
 		font-weight: 300;
+		font-size: .8em;
 
 	}
 
@@ -37,11 +46,29 @@ $highlight: #ffc963;
 		display: flex;
 		align-items: baseline;
 		justify-content: space-between;
+
+		@include tablet-portrait-and-below {
+			flex-direction: column;
+		}
 	}
-	
 
 	.content{
 		width: 500px;
+	}
+}
+
+hr {
+	width: 3em;
+	height: 2px;
+	border: 0;
+	border-top: 2px solid $highlight;
+	margin: 1rem auto 3em auto;
+}
+
+#download_CV_box {
+	text-align: center;
+	a {
+		background-color: transparent;
 	}
 }
 
@@ -49,8 +76,13 @@ $highlight: #ffc963;
 	h2 {
 		line-height: 1.75
 	}
-	max-width: 750px;
+
+	max-width: $mq-tablet-portrait;
 	margin: 100px auto;
+
+	@include tablet-portrait-and-below {
+		margin: 100px 30px
+	}
 
 	a {
 		background: hsla(39, 100%, 69%, .3);

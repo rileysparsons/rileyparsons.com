@@ -1,8 +1,12 @@
 @import "normalize";
+@import "media-queries";
 
 $dark: #44484c;
 $light: #bbbdc1;
 $highlight: #ffc963;
+
+$tablet-width: 768px;
+$desktop-width: 1024px;
 
 * {
 	box-sizing: border-box;
@@ -13,9 +17,13 @@ body {
 }
 
 .wrapper {
-	width: 80%;
-	max-width: 760px;
+	width: 100%;
+	max-width: $mq-tablet-portrait;
 	margin: 0 auto;
+	@include tablet-portrait-and-below {
+		margin: 30px;
+		width: auto;
+	}
 }
 
 .wrapper_padding {
@@ -60,8 +68,39 @@ a {
 	padding: 2.5em 5%;
 	text-align: center;
 
-	#main_logo {
-		width: 215px;
+	#main_logo:hover{
+		// Animations
+		@keyframes right_shift {
+			0%, 20%, 40%, 60%, 100% {
+		   		transform: translateX(0);
+		   	}
+    		30% {
+    			transform: translateX(30px);
+    		}
+    		50% {
+    			transform: translateX(10px);
+    		}
+		}
+
+		@keyframes left_shift {
+		  0%, 20%, 40%, 60%, 100% {
+		   		transform: translateX(0);
+		   	}
+    		30% {
+    			transform: translateX(-30px);
+    		}
+    		50% {
+    			transform: translateX(-10px);
+    		}
+		}
+
+		.yellow_tri {
+			animation: right_shift 1.5s 0s ease;
+		}
+
+		.black_tri {
+			// animation: left_shift 1.5s 0s ease;
+		}
 	}
 	nav {
 		margin-top: 2rem;
