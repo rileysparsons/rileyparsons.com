@@ -72,6 +72,9 @@ hr {
 	text-align: center;
 	a {
 		background-color: transparent;
+		&:hover {
+		color: $highlight;
+		}
 	}
 }
 
