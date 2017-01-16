@@ -5,7 +5,6 @@ class WorksController < ApplicationController
 	
 
 	def index
-		# @works = Work.all.order("created_at desc").paginate(page: params[:page], per_page: 10)
 		redirect_to root_url
 	end
 
@@ -44,12 +43,12 @@ class WorksController < ApplicationController
 	private 
 
 	def work_params
-		params.require(:work).permit(:description, :skills)
+		params.require(:work).permit(:description, :skills, :startDate)
 	end
 
 	def find_work
 		@work = Work.find(params[:id])
 	end
 
-	
+
 end

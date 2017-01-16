@@ -5,6 +5,10 @@ $highlight: #ffc963;
 .timeline{
 	padding: 2.5em 0;
 
+	.nobr {
+		white-space: nowrap;
+	}
+
 	a {
 		background: hsla(39, 100%, 69%, .3);
 		padding: 1px;

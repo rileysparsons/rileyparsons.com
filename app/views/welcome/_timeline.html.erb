@@ -1,38 +1,31 @@
 <div class="timeline">
+	<% month = 2629746%>
+	<% currentBoundary = 3*month%>
+	<% recentBoundary = 6*month%>
 	<section class="current">
 		<span class="title">
 			<p>Currently</p>
 		</span>
 		<ul class="content">
 			<% @works.each do |work| %>
-				<li>
-					<div class="description">
-						<%= markdown work.description %>
-					</div>
-					<p class="skills">
-						<% if !work.skills.nil? %>
-							<%= work.skills.split(",").join(" /") %>
-						<% end %>
-					</p>
-					<div id="admin_section">
-						<% if user_signed_in? %>
-							<%= link_to("Edit", edit_work_path(work)) %>
-						<% end %>
-					</div>
-				</li>
+				<% if (Time.now.to_i-work.startDate.to_time.to_i) < currentBoundary %>
+					<li>
+						<div class="description">
+							<%= timeline_markdown work.description %>
+						</div>
+						<p class="skills">
+							<% if !work.skills.nil? %>
+								<%= work.skills.split(",").map(&:strip).join(" / ") %>
+							<% end %>
+						</p>
+						<div id="admin_section">
+							<% if user_signed_in? %>
+								<%= link_to("Edit", edit_work_path(work)) %>
+							<% end %>
+						</div>
+					</li>
+				<% end %>
 			<% end %>
-			<li>
-				<p class="object">Walking through Harvard’s Data Science <a href="http://cs109.github.io/2015/">course</a></p>
-				<p class="description">Python / statistical modeling / machine learning</p>
-			</li>
-			<li>
-				<p class="object">Built <a href="https://github.com/rileysparsons/Cheers">Cheers</a>, a simple iOS application written in Swift</p>
-				<p class="description">Swift</p>
-			</li>
-			<li>
-				<p class="object">Building my personal <a href="https://github.com/rileysparsons/rileyparsons.com">website</a></p>
-				<p class="description">Photoshop / Illustrator / Ruby on Rails / Git / Heroku</p>
-			</li>
 		</ul>
 	</section>
 	<section class="recently">
@@ -40,13 +33,25 @@
 			<p>Recently</p>
 		</span>
 		<ul class="content">
-			<li>
-				<p class="object">Travelled throughout Eastern Europe and Southeast Asia</p>
-			</li>
-			<li>
-				<p class="object">Associate Intern at <a href="https://svangel.com/">SV Angel</a> in San Francisco</p>
-				<p class="description">Due dilligence / pitch decks / early stage investments</p>
-			</li>
+			<% @works.each do |work| %>
+				<% if ((Time.now.to_i-work.startDate.to_time.to_i) < recentBoundary) &&  ((Time.now.to_i-work.startDate.to_time.to_i) > currentBoundary)%>
+					<li>
+						<div class="description">
+							<%= timeline_markdown work.description %>
+						</div>
+						<p class="skills">
+							<% if !work.skills.nil? %>
+								<%= work.skills.split(",").map(&:strip).join(" / ") %>
+							<% end %>
+						</p>
+						<div id="admin_section">
+							<% if user_signed_in? %>
+								<%= link_to("Edit", edit_work_path(work)) %>
+							<% end %>
+						</div>
+					</li>
+				<% end %>
+			<% end %>
 		</ul>
 	</section>
 	<section class="past">
@@ -54,34 +59,25 @@
 			<p>Past</p>
 		</span>
 		<ul class="content">
-			<li>
-				<p class="object">Graduated from <a href="https://www.scu.edu/">Santa Clara University</a></p>
-				<p class="description">Bioengineering / entrepreneurship / chemistry</p>
-			</li>
-			<li>
-				<p class="object">Completed <a href="http://scholarcommons.scu.edu/cgi/viewcontent.cgi?article=1037&context=bioe_senior">senior thesis</a> required for degree in bioengineering</p>
-				<p class="description">Bioengineering / Analytical Chemistry</p>
-			</li>
-			<li>
-				<p class="object">Technology and Venture Capital Intern at <a href="https://www.cnb.com/technology/">City National Bank</a></p>
-				<p class="description">Venture debt / startups / banking / business writing</p>
-			</li>
-			<li>
-				<p class="object">Marketing intern at <a href="http://www.se3d.com/">SE3D Education</a></p>
-				<p class="description">Copywriting / InDesign / 3D Bioprinting</p>
-			</li>
-			<li>
-				<p class="object">Developed <a href="https://github.com/rileysparsons/Spree">Spree</a>, mobile marketplace for students</p>
-				<p class="description">Objective-C / Sketch / XCode</p>
-			</li>
-			<li>
-				<p class="object">Research Assistant in <a href="https://www.scu.edu/cas/chemistry/faculty/steven-suljak/">Suljak Lab</a>, Santa Clara University, Department of Chemistry</p>
-				<p class="description">Capillary Electrophoresis / Analytical Chemistry / Protein-DNA Interactions </p>
-			</li>
-			<li>
-				<p class="object">Developed SceneScope, map app for Santa Clara students</p>
-				<p class="description">Objective-C / XCode</p>
-			</li>
+			<% @works.each do |work| %>
+				<% if (Time.now.to_i-work.startDate.to_time.to_i) > recentBoundary %>
+					<li>
+						<div class="description">
+							<%= timeline_markdown work.description %>
+						</div>
+						<p class="skills">
+							<% if !work.skills.nil? %>
+								<%= work.skills.split(",").map(&:strip).join(" / ") %>
+							<% end %>
+						</p>
+						<div id="admin_section">
+							<% if user_signed_in? %>
+								<%= link_to("Edit", edit_work_path(work)) %>
+							<% end %>
+						</div>
+					</li>
+				<% end %>
+			<% end %>
 		</ul>
 	</section>
 	<hr>

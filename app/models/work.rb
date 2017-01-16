@@ -1,8 +1,13 @@
 class Work < ActiveRecord::Base
 
+	validates :description, presence: true
+	validates :startDate, presence: true
+
 	before_save :sanitize_skills_string
 
 	def sanitize_skills_string
-		self.skills.delete("\s").downcase!
+		unless self.skills.nil?
+			self.skills = self.skills.downcase
+		end
 	end
 end
