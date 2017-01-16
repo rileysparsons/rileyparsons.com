@@ -43,7 +43,7 @@ class WorksController < ApplicationController
 	private 
 
 	def work_params
-		params.require(:work).permit(:description, :skills, :startDate)
+		params.require(:work).permit(:description, :skills, :start_date)
 	end
 
 	def find_work

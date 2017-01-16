@@ -8,7 +8,7 @@
 		</span>
 		<ul class="content">
 			<% @works.each do |work| %>
-				<% if (Time.now.to_i-work.startDate.to_time.to_i) < currentBoundary %>
+				<% if (Time.now.to_i-work.start_date.to_time.to_i) < currentBoundary %>
 					<li>
 						<div class="description">
 							<%= timeline_markdown work.description %>
@@ -34,7 +34,7 @@
 		</span>
 		<ul class="content">
 			<% @works.each do |work| %>
-				<% if ((Time.now.to_i-work.startDate.to_time.to_i) < recentBoundary) &&  ((Time.now.to_i-work.startDate.to_time.to_i) > currentBoundary)%>
+				<% if ((Time.now.to_i-work.start_date.to_time.to_i) < recentBoundary) &&  ((Time.now.to_i-work.start_date.to_time.to_i) > currentBoundary)%>
 					<li>
 						<div class="description">
 							<%= timeline_markdown work.description %>
@@ -60,7 +60,7 @@
 		</span>
 		<ul class="content">
 			<% @works.each do |work| %>
-				<% if (Time.now.to_i-work.startDate.to_time.to_i) > recentBoundary %>
+				<% if (Time.now.to_i-work.start_date.to_time.to_i) > recentBoundary %>
 					<li>
 						<div class="description">
 							<%= timeline_markdown work.description %>

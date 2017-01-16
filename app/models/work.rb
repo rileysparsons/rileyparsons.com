@@ -1,7 +1,7 @@
 class Work < ActiveRecord::Base
 
 	validates :description, presence: true
-	validates :startDate, presence: true
+	validates :start_date, presence: true
 
 	before_save :sanitize_skills_string
 

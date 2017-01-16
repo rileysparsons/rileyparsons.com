@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170116012706) do
+ActiveRecord::Schema.define(version: 20170116202339) do
 
   create_table "friendly_id_slugs", force: :cascade do |t|
     t.string   "slug",                      null: false
@@ -56,7 +56,7 @@ ActiveRecord::Schema.define(version: 20170116012706) do
 
   create_table "works", force: :cascade do |t|
     t.text     "description"
-    t.date     "startDate"
+    t.date     "start_date"
     t.text     "skills"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
