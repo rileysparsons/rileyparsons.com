@@ -1,0 +1,18 @@
+<div id="post_show_content" class="wrapper wrapper_padding">
+	<header>
+		<p class="date"><%= @work.created_at.strftime("%A, %B, %d") %></p>
+		<hr>
+	</header>
+	<div class="content">
+		<%= markdown @work.description %>
+	</div>
+	<hr>
+
+	<% if user_signed_in? %>
+		<div id="admin_links">
+			<%= link_to("Edit Work", edit_work_path(@work)) %>
+			<%= link_to("Delete Work", work_path(@work) , method: :delete, data: {confirm: "Are you sure?"}) %>
+		</div>
+	<% end %>
+
+</div>

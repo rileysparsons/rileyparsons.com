@@ -1,0 +1,13 @@
+<div class="bottom_border">
+  <div id="page_title">
+    <h2>New Post</h2>
+  </div>
+</div>
+
+<div class="wrapper wrapper_padding">
+	<%= render "form" %>
+</div>
+
+<div id="admin_links">
+	<%= link_to("Delete Work", work_path(@work) , method: :delete, data: {confirm: "Are you sure?"}) %>
+</div>

@@ -4,6 +4,23 @@
 			<p>Currently</p>
 		</span>
 		<ul class="content">
+			<% @works.each do |work| %>
+				<li>
+					<div class="description">
+						<%= markdown work.description %>
+					</div>
+					<p class="skills">
+						<% if !work.skills.nil? %>
+							<%= work.skills.split(",").join(" /") %>
+						<% end %>
+					</p>
+					<div id="admin_section">
+						<% if user_signed_in? %>
+							<%= link_to("Edit", edit_work_path(work)) %>
+						<% end %>
+					</div>
+				</li>
+			<% end %>
 			<li>
 				<p class="object">Walking through Harvard’s Data Science <a href="http://cs109.github.io/2015/">course</a></p>
 				<p class="description">Python / statistical modeling / machine learning</p>

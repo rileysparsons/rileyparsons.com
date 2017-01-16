@@ -1,0 +1,18 @@
+<div class="bottom_border">
+	<div id="page_title">
+		<h3>Some things I've written.</h3>
+	</div>
+</div>
+
+<div id="posts_wrapper" class="wrapper">
+
+	<% @works.each do |work| %>
+		<div class="post">
+			<p class="date"><%= work.created_at.strftime('%A, %B, %d') %></p>
+			<h2><%= link_to work.title, work %></h2>
+			<hr>
+		</div>
+	<% end %>
+</div>
+
+<%= will_paginate @works %>

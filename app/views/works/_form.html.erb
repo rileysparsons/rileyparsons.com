@@ -1,0 +1,25 @@
+<%= form_for @work do |f|  %>
+	<% if @work.errors.any? %>
+	<h2><%= pluralize(@work.errors.count, "errors") %> prevented this work from saving </h2>
+	<ul>
+		<% @work.errors.full_messages.each do |msg| %>
+		<li><%= msg %></li>
+		<% end %>
+	</ul>
+<% end %>
+
+<%= f.label :description, "Write your work description here" %><br>
+<%= f.text_area :description%>
+
+<br>
+<br>
+
+<%= f.label :skills, "List skills from the work here" %><br>
+<%= f.text_area :skills%>
+
+<br>
+<br>
+
+<%= f.submit %>
+
+<% end %>
