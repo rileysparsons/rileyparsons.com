@@ -1,8 +1,6 @@
 class WorksController < ApplicationController
 	before_action :find_work, only: [:show, :edit, :update, :destroy]
 	before_action :authenticate_user!, except: [:index, :show]
-	
-	
 
 	def index
 		redirect_to root_url
@@ -16,7 +14,7 @@ class WorksController < ApplicationController
 		@work = Work.new work_params
 		if @work.save
 			redirect_to @work, notice: "Riley, Your article was successfully saved!"
-		else 
+		else
 			render "new", notice: "Oh no, your article failed to save."
 		end
 	end
@@ -40,10 +38,10 @@ class WorksController < ApplicationController
 		redirect_to works_path
 	end
 
-	private 
+	private
 
 	def work_params
-		params.require(:work).permit(:description, :skills, :start_date)
+		params.require(:work).permit(:description, :skills, :start_date, :current)
 	end
 
 	def find_work

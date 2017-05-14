@@ -8,7 +8,7 @@
 		</span>
 		<ul class="content">
 			<% @works.each do |work| %>
-				<% if (Time.now.to_i-work.start_date.to_time.to_i) < currentBoundary %>
+				<% if work.current? %>
 					<li>
 						<div class="description">
 							<%= timeline_markdown work.description %>
