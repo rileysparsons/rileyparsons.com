@@ -34,7 +34,7 @@
 		</span>
 		<ul class="content">
 			<% @works.each do |work| %>
-				<% if ((Time.now.to_i-work.start_date.to_time.to_i) < recentBoundary) &&  ((Time.now.to_i-work.start_date.to_time.to_i) > currentBoundary)%>
+				<% if !work.current? && ((Time.now.to_i-work.start_date.to_time.to_i) < recentBoundary) &&  ((Time.now.to_i-work.start_date.to_time.to_i) > currentBoundary)%>
 					<li>
 						<div class="description">
 							<%= timeline_markdown work.description %>
