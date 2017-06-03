@@ -5,7 +5,7 @@
 		<hr>
 	</header>
 	<div class="content">
-		<%= markdown @post.content %>
+		<%= markdown @post.content.html_safe %>
 	</div>
 	<hr>
 
