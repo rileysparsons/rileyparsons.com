@@ -28,13 +28,13 @@
 			<% end %>
 		</ul>
 	</section>
-	<% if !work.current? && ((Time.now.to_i-work.start_date.to_time.to_i) < recentBoundary) &&  ((Time.now.to_i-work.start_date.to_time.to_i) > currentBoundary)%>
 	<section class="recently">
 		<span class="title">
 			<p>Recently</p>
 		</span>
 		<ul class="content">
 			<% @works.each do |work| %>
+				<% if !work.current? && ((Time.now.to_i-work.start_date.to_time.to_i) < recentBoundary) &&  ((Time.now.to_i-work.start_date.to_time.to_i) > currentBoundary)%>
 					<li>
 						<div class="description">
 							<%= timeline_markdown work.description %>
@@ -51,9 +51,9 @@
 						</div>
 					</li>
 				<% end %>
+			<% end %>
 		</ul>
 	</section>
-	<% end %>
 	<section class="past">
 		<span class="title">
 			<p>Past</p>
