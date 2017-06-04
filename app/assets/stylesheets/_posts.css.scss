@@ -40,7 +40,7 @@
 		h1 {
 			margin: 0;
 		}
-		
+
 	}
 	hr {
 			width: 3em;
@@ -48,6 +48,14 @@
 			border: 0;
 			border-top: 2px solid $highlight;
 			margin: 3rem auto;
+	}
+
+	a {
+		text-decoration: underline;
+		&:hover {
+			color:$highlight;
+			cursor: pointer;
+		}
 	}
 }
 
@@ -86,7 +94,7 @@
 
 }
 
-// - - - - - - - - Pagination 
+// - - - - - - - - Pagination
 
 .pagination:before,
 .pagination:after {
