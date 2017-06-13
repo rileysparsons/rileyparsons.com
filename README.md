@@ -1,10 +1,10 @@
 # rileyparsons.com
 
-*Follow this [link](http://rileyparsons.com/) to see the site.
+*Here is the [link](http://rileyparsons.com/) (sorry about the wait, currently hosted on a free Heroku Dyno)*
 
 ## Technical Specifications
 
-Built with Ruby on Rails. Frontend uses Sass and a touch of Javascript.
+Built with Ruby on Rails. Frontend uses Sass and a touch of Javascript. Hosted on Heroku, version control with Git.
 
 ## Future Plans
 
