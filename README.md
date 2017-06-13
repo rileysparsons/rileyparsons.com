@@ -1,6 +1,6 @@
 # rileyparsons.com
 
-*Here is the [link](http://rileyparsons.com/) (sorry about the wait, currently hosted on a free Heroku Dyno)*
+*[Here](http://rileyparsons.com/)  it is (sorry about the wait, currently hosted on a free Heroku Dyno)*
 
 ## Technical Specifications
 
